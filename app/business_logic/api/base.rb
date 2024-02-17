@@ -3,25 +3,26 @@ module BusinessLogic
     class Base
 
       def games
-        fetch_games
+        parse_games
       end
 
       private
 
-      def fetch_games
-        @fetch_games ||= begin
-          if response.success?
-            JSON.parse(response.body).dig(*parse).map do |game|
-              "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)
-            end
-          else
-            nil
-          end
-        end
+      # TODO: handle errors
+      def parse_games
+        @parse_games ||= JSON.parse(response.body).dig(*parse_scope).map{ |game| "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)} if response.success?
       end
 
       def response
         @response ||= client.get
+      end
+
+      def endpoint
+        raise StandardError, "Subclasses must implement this method"
+      end
+
+      def parse_scope
+        raise StandardError, "Subclasses must implement this method"
       end
 
       def headers

@@ -1,37 +1,56 @@
-<div style="width: 900px; margin: 0 auto; display: flex; justify-content: space-between;">
-  <div style="width: 30%;">
+<div style="width: 1400px; margin: 0 auto; display: flex; justify-content: space-between;">
+  <div style="width: 22%;">
     <h1 style="text-align: center">Unibet</h1>
 
     <% @unibet.each do |bet| %>
       <div style="width: 100%; border: 1px solid gray; margin-bottom: 10px;">
-        <p><%= bet.time %></p>
-        <p><b><%= bet.home_team %>:</b> <%= bet.home_team_bet %></p>
-        <p><b>Oavgjort:</b> <%= bet.tie_bet %></p>
-        <p><b><%= bet.away_team %>:</b> <%= bet.away_team_bet %></p>
+        <p style="text-align: center; padding-bottom: 0; margin-bottom: 5px;"><%= bet.time.strftime("%H:%M") %></p>
+        <p style="text-align: center; padding-top: 0; margin-top: 0; "><b><%= bet.time.strftime("%F") %></b></p>
+        <p style="margin-left: 20px;"><b><%= bet.home_team %>:</b> <%= bet.home_team_bet %></p>
+        <p style="margin-left: 20px;"><b>Oavgjort:</b> <%= bet.tie_bet %></p>
+        <p style="margin-left: 20px;"><b><%= bet.away_team %>:</b> <%= bet.away_team_bet %></p>
       </div>
     <% end %>
   </div>
 
-  <div style="width: 30%;">
-    <h1 style="text-align: center">Betsson</h1>
+  <div style="width: 22%;">
+    <h1 style="text-align: center">Casumo</h1>
 
-    <% @betsson.each_slice(3) do |bet| %>
+    <% @casumo.each do |bet| %>
       <div style="width: 100%; border: 1px solid gray; margin-bottom: 10px;">
-        <p><%= bet[0]["label"] %> - <%= bet[2]["label"] %></p>
-        <p><%= bet[0]["odds"] %> <%= bet[1]["odds"] %> <%= bet[2]["odds"] %></p>
+        <p style="text-align: center; padding-bottom: 0; margin-bottom: 5px;"><%= bet.time.strftime("%H:%M") %></p>
+        <p style="text-align: center; padding-top: 0; margin-top: 0; "><b><%= bet.time.strftime("%F") %></b></p>
+        <p style="margin-left: 20px;"><b><%= bet.home_team %>:</b> <%= (bet.home_team_bet.to_f/1000) %></p>
+        <p style="margin-left: 20px;"><b>Oavgjort:</b> <%= (bet.tie_bet.to_f/1000) %></p>
+        <p style="margin-left: 20px;"><b><%= bet.away_team %>:</b> <%= (bet.away_team_bet.to_f/1000).to_f %></p>
       </div>
-     <% end %>
+    <% end %>
   </div>
 
-  <div style="width: 30%;">
+  <div style="width: 22%;">
+    <h1 style="text-align: center">SpeedyBet</h1>
+
+    <% @speedy_bet.each do |bet| %>
+      <div style="width: 100%; border: 1px solid gray; margin-bottom: 10px;">
+        <p style="text-align: center; padding-bottom: 0; margin-bottom: 5px;"><%= bet.time.strftime("%H:%M") %></p>
+        <p style="text-align: center; padding-top: 0; margin-top: 0; "><b><%= bet.time.strftime("%F") %></b></p>
+        <p style="margin-left: 20px;"><b><%= bet.home_team %>:</b> <%= (bet.home_team_bet.to_f/1000) %></p>
+        <p style="margin-left: 20px;"><b>Oavgjort:</b> <%= (bet.tie_bet.to_f/1000) %></p>
+        <p style="margin-left: 20px;"><b><%= bet.away_team %>:</b> <%= (bet.away_team_bet.to_f/1000).to_f %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div style="width: 22%;">
     <h1 style="text-align: center">888Sport</h1>
 
     <% @eighteighteightsport.each do |bet| %>
       <div style="width: 100%; border: 1px solid gray; margin-bottom: 10px;">
-        <p><%= bet.time %></p>
-        <p><b><%= bet.home_team %>:</b> <%= bet.home_team_bet %></p>
-        <p><b>Oavgjort:</b> <%= bet.tie_bet %></p>
-        <p><b><%= bet.away_team %>:</b> <%= bet.away_team_bet %></p>
+        <p style="text-align: center; padding-bottom: 0; margin-bottom: 5px;"><%= bet.time.strftime("%H:%M") %></p>
+        <p style="text-align: center; padding-top: 0; margin-top: 0; "><b><%= bet.time.strftime("%F") %></b></p>
+        <p style="margin-left: 20px;"><b><%= bet.home_team %>:</b> <%= bet.home_team_bet %></p>
+        <p style="margin-left: 20px;"><b>Oavgjort:</b> <%= bet.tie_bet %></p>
+        <p style="margin-left: 20px;"><b><%= bet.away_team %>:</b> <%= bet.away_team_bet %></p>
       </div>
     <% end %>
   </div>

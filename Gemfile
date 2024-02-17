@@ -72,5 +72,4 @@ end
 
 # Self added gems
 gem 'faraday', '~> 2.9'
-gem 'dry-struct', '~> 1.6'
-gem 'dry-types', '~> 1.7', '>= 1.7.2'
+gem 'dry-struct', '~> 1.4'
