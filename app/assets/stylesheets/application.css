@@ -13,3 +13,72 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+  background-color: #101112;
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  font-size: 14px;
+  color: white;
+  margin: 5px 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+  text-align: center;
+}
+
+.box {
+  width: 100%;
+  margin-bottom: 30px;
+  background: #171717;
+  border-radius: 15px;
+}
+
+.bets {
+  padding: 15px 0;
+}
+
+.bet-box {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.bet-text {
+  background: #1e1e1e;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.bet-box-team {
+  display: flex;
+  align-items: center;
+}
+
+.bet-box-team p {
+  margin-left: 10px;
+}
+
+.banner {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  padding-top: 20px;
+}
+
+.banner p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-weight: 700;
+  color: #8b8b8b;
+  font-size: 12px;
+}

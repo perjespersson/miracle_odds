@@ -6,11 +6,16 @@ module BusinessLogic
         parse_games
       end
 
+      def success?
+        response.success?
+      end
+
       private
 
-      # TODO: handle errors
       def parse_games
-        @parse_games ||= JSON.parse(response.body).dig(*parse_scope).map{ |game| "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)} if response.success?
+        @parse_games ||= JSON.parse(response.body)
+                             .dig(*parse_scope)
+                             .map{ |game| "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)} if success?
       end
 
       def response

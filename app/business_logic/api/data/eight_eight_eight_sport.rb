@@ -8,11 +8,11 @@ module BusinessLogic
 
           new(
             time: api_response.dig(1, "start_time"),
-            home_team: home_team,
-            away_team: away_team,
-            home_team_bet: api_response.dig(1, "markets", "3", "selections").values.find{ |hash| hash["name"] == home_team }&.dig("decimal_price"),
-            tie_bet: api_response.dig(1, "markets", "3", "selections").values.find{ |hash| hash["name"] == "Oavgjort"}&.dig("decimal_price"),
-            away_team_bet: api_response.dig(1, "markets", "3", "selections").values.find{ |hash| hash["name"] == away_team }&.dig("decimal_price")
+            home_team: BusinessLogic::Domain::Team.map_team_name(home_team),
+            away_team: BusinessLogic::Domain::Team.map_team_name(away_team),
+            home_team_bet: api_response.dig(1, "markets", "3", "selections").values.find{ |hash| hash["name"] == home_team }&.dig("decimal_price").to_f * 1000,
+            tie_bet: api_response.dig(1, "markets", "3", "selections").values.find{ |hash| hash["name"] == "Oavgjort"}&.dig("decimal_price").to_f * 1000,
+            away_team_bet: api_response.dig(1, "markets", "3", "selections").values.find{ |hash| hash["name"] == away_team }&.dig("decimal_price").to_f * 1000
           )
         end
       end
