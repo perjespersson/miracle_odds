@@ -1,7 +1,6 @@
 module BusinessLogic
   module Api
     class Base
-
       def games
         @games ||= JSON.parse(response.body)
                              .dig(*parse_scope)
@@ -27,11 +26,11 @@ module BusinessLogic
       end
 
       def url
-        bet_api.url.freeze
+        bet_api.url
       end
 
       def headers
-        bet_api.headers.freeze
+        bet_api.headers
       end
 
       def client
