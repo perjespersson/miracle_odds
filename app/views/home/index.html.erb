@@ -14,7 +14,7 @@
               <%= image_tag(bet.home_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.home_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.home_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.home_team_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -22,7 +22,7 @@
               <%= image_tag("tie", size: "24x24") %>
               <p><b>Oavgjort</b></p>
             </div>
-            <p class="bet-text"><b><%= bet.tie_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.tie_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -30,7 +30,7 @@
               <%= image_tag(bet.away_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.away_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.away_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.away_team_bet || '-' %></b></p>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
               <%= image_tag(bet.home_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.home_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.home_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.home_team_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -60,7 +60,7 @@
               <%= image_tag("tie", size: "24x24") %>
               <p><b>Oavgjort</b></p>
             </div>
-            <p class="bet-text"><b><%= bet.tie_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.tie_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -68,7 +68,7 @@
               <%= image_tag(bet.away_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.away_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.away_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.away_team_bet || '-' %></b></p>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@
               <%= image_tag(bet.home_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.home_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.home_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.home_team_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -98,7 +98,7 @@
               <%= image_tag("tie", size: "24x24") %>
               <p><b>Oavgjort</b></p>
             </div>
-            <p class="bet-text"><b><%= bet.tie_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.tie_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -106,7 +106,7 @@
               <%= image_tag(bet.away_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.away_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.away_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.away_team_bet || '-' %></b></p>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
               <%= image_tag(bet.home_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.home_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.home_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.home_team_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -136,7 +136,7 @@
               <%= image_tag("tie", size: "24x24") %>
               <p><b>Oavgjort</b></p>
             </div>
-            <p class="bet-text"><b><%= bet.tie_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.tie_bet %></b></p>
           </div>
 
           <div class="bet-box">
@@ -144,7 +144,7 @@
               <%= image_tag(bet.away_team.parameterize(separator: '-'), size: "24x24") %>
               <p><b><%= bet.away_team %></b></p>
             </div>
-            <p class="bet-text"><b><%= bet.away_team_bet / 1000 %></b></p>
+            <p class="bet-text"><b><%= bet.away_team_bet || '-' %></b></p>
           </div>
         </div>
       </div>
