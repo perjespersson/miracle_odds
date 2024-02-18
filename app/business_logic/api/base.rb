@@ -2,9 +2,7 @@ module BusinessLogic
   module Api
     class Base
       def games
-        @games ||= JSON.parse(response.body)
-                             .dig(*parse_scope)
-                             .map{ |game| "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)} if success?
+        @games ||= parsed_games_from_response
       end
 
       def success?
@@ -12,6 +10,16 @@ module BusinessLogic
       end
 
       private
+
+      def parsed_games_from_response
+        if success?
+          JSON.parse(response.body)
+              .dig(*parse_scope)
+              .map{ |game| "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)}
+        else
+          []
+        end
+      end
 
       def response
         @response ||= client.get
