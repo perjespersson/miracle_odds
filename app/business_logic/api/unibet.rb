@@ -3,8 +3,8 @@ module BusinessLogic
     class Unibet < Base
       private
 
-      def endpoint
-        'https://www.unibet.se/sportsbook-feeds/views/filter/football/england/premier_league/all/matches'.freeze
+      def name
+        "Unibet"
       end
 
       def parse_scope

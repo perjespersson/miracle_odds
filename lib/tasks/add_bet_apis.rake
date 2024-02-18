@@ -1,5 +1,5 @@
 desc "Adds bet-website api details"
-task :add_bet_apis do
+task :add_bet_apis, [] => [:environment] do
   api_details = [
     {
       url: "https://www.unibet.se/sportsbook-feeds/views/filter/football/england/premier_league/all/matches",
@@ -25,7 +25,7 @@ task :add_bet_apis do
       headers: {}
     }
   ]
-
+  puts api_details.first[:url]
   api_details.each do |api|
     bet_api = BetApi.new(url: api[:url], name: api[:name], headers: api[:headers])
     bet_api.save!
