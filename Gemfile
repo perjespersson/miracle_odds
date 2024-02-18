@@ -73,3 +73,4 @@ end
 # Self added gems
 gem 'faraday', '~> 2.9'
 gem 'dry-struct', '~> 1.4'
+gem 'clockwork', '~> 3.0', '>= 3.0.2'
