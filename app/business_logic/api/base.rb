@@ -3,7 +3,9 @@ module BusinessLogic
     class Base
 
       def games
-        parse_games
+        @games ||= JSON.parse(response.body)
+                             .dig(*parse_scope)
+                             .map{ |game| "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)} if success?
       end
 
       def success?
@@ -11,12 +13,6 @@ module BusinessLogic
       end
 
       private
-
-      def parse_games
-        @parse_games ||= JSON.parse(response.body)
-                             .dig(*parse_scope)
-                             .map{ |game| "BusinessLogic::Api::Data::#{self.class.name.demodulize}".constantize.from_api_response(game)} if success?
-      end
 
       def response
         @response ||= client.get
@@ -31,11 +27,11 @@ module BusinessLogic
       end
 
       def url
-        bet_api.url
+        bet_api.url.freeze
       end
 
       def headers
-        bet_api.headers
+        bet_api.headers.freeze
       end
 
       def client
