@@ -25,9 +25,8 @@ task :add_bet_apis, [] => [:environment] do
       headers: {}
     }
   ]
-  puts api_details.first[:url]
+
   api_details.each do |api|
-    bet_api = BetApi.new(url: api[:url], name: api[:name], headers: api[:headers])
-    bet_api.save!
+    BetApi.create!(url: api[:url], name: api[:name], headers: api[:headers])
   end
 end
